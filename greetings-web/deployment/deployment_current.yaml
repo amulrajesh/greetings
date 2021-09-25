@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greetings-web
+  labels:
+    app: greetings
+spec:
+  selector:
+    matchLabels:
+      app: greetings-web
+  replicas: 2
+  template:
+    metadata:
+      name: greetings-web
+      labels:
+        app: greetings-web
+    spec:
+      containers:
+        - name: greetings-web
+          image: amulrajesh/greetings-web:0.0.1

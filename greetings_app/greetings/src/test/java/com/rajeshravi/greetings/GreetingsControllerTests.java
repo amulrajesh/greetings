@@ -17,7 +17,7 @@ class GreetingsControllerTests {
 	
 	@Test
 	void testGreetings() throws Exception {
-		this.mockMvc.perform(MockMvcRequestBuilders.get("/greetings"))
+		this.mockMvc.perform(MockMvcRequestBuilders.get("/api/greetings"))
 				.andExpect(status().isOk())
 				.andExpect(content().string("Hello Stakater"));
 	}
