@@ -2,9 +2,9 @@
 
 APP_VERSION=$1
 
-#docker build -t amulrajesh/greetings-api:${APP_VERSION} .
+docker build -t amulrajesh/greetings-api:${APP_VERSION} .
 
-#docker push amulrajesh/greetings-api:${APP_VERSION}
+docker push amulrajesh/greetings-api:${APP_VERSION}
 
 kubectl apply -f deployment/service.yaml --validate=false
 
