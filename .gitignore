@@ -23,3 +23,5 @@
 hs_err_pid*
 node_modules/@angular/cli/commands/add.js
 node_modules
+greetings-web/deployment/deployment_current.yaml
+greetings_app/greetings/deployment/deployment_current.yaml

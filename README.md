@@ -31,6 +31,12 @@
     git clone https://github.com/amulrajesh/greetings.git
 ```
 
+## Start Minikube
+```curl
+    1. Execute command "minikube start --vm-dirver=hyper-v" (To run minikube in hyper-v)
+    2. To verify execute command "minikube status"
+```
+
 ## Running Without Helm
 ```curl
         Greetings API
@@ -81,7 +87,7 @@
                 If DOCKER_CMD_FLAG version is true
                     1. Build docker image
                     2. Push docker image 
-                    
+
                 If KUBECTL_CMD_FLAG is true
                     1. Create Kubernetes service
                     2. Replace deployment.yaml image API_VERSION with DOCKER_IMG_VERSION
