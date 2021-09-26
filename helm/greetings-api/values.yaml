@@ -1,0 +1,12 @@
+deployment:
+  image: "amulrajesh/greetings-api"
+  tag: "0.0.1-SNAPSHOT"
+name: "greetings-api"
+service:
+  name: "greetings-api-service"
+env:
+  name: "name"
+  value: "Rajesh From Helm"
+healthcheck:
+  url: "/api/greetings"
+  port: 8080

@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: greetings-web
+  name: {{ .Values.name }}
   labels:
     app: greetings
 spec:
   selector:
     matchLabels:
-      app: greetings-web
+      app: {{ .Values.name }}
   replicas: 2
   template:
     metadata:
-      name: greetings-web
+      name: {{ .Values.name }}
       labels:
-        app: greetings-web
+        app: {{ .Values.name }}
     spec:
       containers:
-        - name: greetings-web
-          image: amulrajesh/greetings-web:APP_VERSION
+        - name: {{ .Values.name }}
+          image: {{ .Values.deployment.image }}:{{ .Values.deployment.tag}}
           readinessProbe:
             failureThreshold: 3
             httpGet:

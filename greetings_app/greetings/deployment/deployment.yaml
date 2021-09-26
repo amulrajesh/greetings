@@ -18,6 +18,7 @@ spec:
       containers:
         - name: greetings-api
           image: amulrajesh/greetings-api:APP_VERSION
+          imagePullPolicy: Always
           env:
             - name: name
               value: Rajesh

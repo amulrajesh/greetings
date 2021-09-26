@@ -1,15 +1,29 @@
 #!/bin/bash
 
+if [ $# -le 2 ]
+  then
+    echo "No/Less than 3 arguments are supplied"
+    exit 1
+fi
+
 APP_VERSION=$1
 
-docker build -t amulrajesh/greetings-web:${APP_VERSION} .
+if [ $2 = true ]
+    then
+        docker build -t amulrajesh/greetings-web:${APP_VERSION} .
 
-docker push amulrajesh/greetings-web:${APP_VERSION}
+        docker push amulrajesh/greetings-web:${APP_VERSION}
+fi
 
-kubectl apply -f deployment/service.yaml --validate=false
+if [ $3 = true ]
+    then
+    
+        kubectl apply -f deployment/service.yaml --validate=false
 
-sed "s/APP_VERSION/${APP_VERSION}/g" \
-    deployment/deployment.yaml \
-    > deployment/deployment_current.yaml
+        sed "s/APP_VERSION/${APP_VERSION}/g" \
+            deployment/deployment.yaml \
+            > deployment/deployment_current.yaml
 
-kubectl apply -f deployment/deployment_current.yaml --validate=false
+        kubectl apply -f deployment/deployment_current.yaml --validate=false
+
+fi

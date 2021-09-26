@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}
+  labels:
+    app: greetings
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.name }}
+  replicas: 2
+  template:
+    metadata:
+      name: {{ .Values.name }}
+      labels:
+        app: {{ .Values.name }}
+    spec:
+      containers:
+        - name: {{ .Values.name }}
+          image: {{ .Values.deployment.image }}:{{ .Values.deployment.tag}}
+          imagePullPolicy: Always
+          env:
+            - name: {{ .Values.env.name }}
+              value: {{ .Values.env.value }}
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: {{ .Values.healthcheck.url }}
+              port: {{ .Values.healthcheck.port }}
+            initialDelaySeconds: 1
+            timeoutSeconds: 1
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: {{ .Values.healthcheck.url }}
+              port: {{ .Values.healthcheck.port }}
+            initialDelaySeconds: 100
+            timeoutSeconds: 5
