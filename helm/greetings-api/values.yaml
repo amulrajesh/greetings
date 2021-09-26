@@ -2,6 +2,7 @@ deployment:
   image: "amulrajesh/greetings-api"
   tag: "0.0.1-SNAPSHOT"
 name: "greetings-api"
+label: "greetings"
 service:
   name: "greetings-api-service"
 env:

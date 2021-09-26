@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: greetings-api-service
+  name: {{ .Values.service.name }}
   labels:
-    app: greetings
+    app: {{ .Values.label }}
 spec:
   selector:
-    app: greetings-api
+    app: {{ .Values.name }}
   type: NodePort
   ports:
     - port: 8080

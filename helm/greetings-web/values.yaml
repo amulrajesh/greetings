@@ -1,6 +1,7 @@
 deployment:
   image: "amulrajesh/greetings-web"
-  tag: "0.0.2"
+  tag: "0.0.6"
 name: "greetings-web"
+label: greetings
 service:
   name: "greetings-web-service"
